@@ -1,0 +1,85 @@
+*{
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.contenedor{
+    border: 2px solid #ccc;
+    width: 400px;
+    height: auto;
+}
+.contenedor2{
+    overflow: hidden;
+    width: 100%;
+}
+header{
+    background-color: rgb(100, 110, 252);
+    padding: 2px;
+    margin: 10px;
+    text-align: center;
+}
+nav{
+    background-color: rgb(240, 112, 112);
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+main{
+    background-color: rgb(240, 166, 110);
+    float: right;
+    width: 60%;
+    padding: 2px;
+    margin-left: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+footer{
+    background-color: rgb(100, 110, 252);
+    clear: both;
+    padding: 2px;
+    margin: 10px;
+}
+aside{
+    background-color: rgb(240, 166, 110);
+    float: left;
+    width: 30%;
+    
+    padding-bottom: 340px;
+    margin-left: 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+article{
+    background-color: aliceblue;
+    padding: 2px;
+    margin: 10px;
+}
+article > header{
+    background-color: rgb(103, 245, 103);
+    padding: 2px;
+    margin: 10px;
+}
+article > footer{
+    background-color: rgb(172, 104, 235);
+    padding: 2px;
+    margin: 10px;
+}
+figure{
+    background-color: rgb(240, 166, 110);
+    padding: 2px;
+    margin: 10px;
+}
+section{
+    background-color: aliceblue;
+    padding: 2px;
+    margin: 10px;
+}
+
+article > p{
+    text-align: center;
+    background-color: burlywood;
+    padding: 2px;
+    margin: 10px;
+}
+p:first-child{
+    text-align: center;
+}

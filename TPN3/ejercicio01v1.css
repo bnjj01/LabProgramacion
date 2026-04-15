@@ -1,0 +1,62 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+section, .btn{
+    display:flex;
+    justify-content: center;
+}
+section > form{
+    box-shadow: 0px 4px 15px rgb(0, 0, 0);
+    border-top:8px solid blueviolet;
+    padding: 70px 30px 30px 30px;
+    margin-top: 50px;
+    width: 300px;
+    border-radius: 10px;
+}
+div > button{
+    box-sizing: border-box;
+    background-color: blueviolet;
+    border: 0px;
+    border-radius: 15px;
+    width: 110px;
+    height: 35px;
+    font-weight: bold;
+    color:#ffffff;
+}
+.fila-formulario{
+    display: flex;
+    gap: 10px;
+}
+.grupo-formulario{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.fila-formulario input{
+    box-sizing: border-box;
+    width: 100%;
+}
+form input,#select,#area1{
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin-bottom: 20px;
+}
+.form-individual{
+    display: block;
+    margin-bottom: 2px;
+}
+#email,#select,#area1{
+    box-sizing: border-box;
+    width: 100%;
+}
+#area1{
+    overflow: auto;
+}
+form label{
+    font-size: small;
+    color: #636262;
+}
+textarea{
+    resize: vertical;
+}

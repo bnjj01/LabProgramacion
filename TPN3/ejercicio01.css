@@ -1,0 +1,83 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+section{
+    margin: 90px 515px auto 450px;
+}
+
+form{
+    box-shadow: 0px 4px 15px rgb(0, 0, 0 );
+    border-top: 6px solid blueviolet;
+    border-radius: 10px;
+    padding: 60px 40px 30px 40px;
+}
+.fila-formulario > .grupo-formulario{
+    display: inline-block;
+}
+.grupo-formulario > label{
+    font-size: small;
+    color: #5d5d5d;
+    margin-bottom: 3px;
+}
+.grupo-formulario > label,textarea{
+    display: block;
+}
+input{
+    font-size: small;
+    box-sizing: border-box;
+    width: 140px;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+input#name{
+    margin-right: 8px;
+    font-size: small;
+    box-sizing: border-box;
+    width: 140px;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+
+}
+#select{
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 35px;
+    font-size: small;
+}
+#select, #email, #area1{
+    box-sizing: border-box;
+    width: 100%;
+}
+#area1{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: small;
+    height: 70px;
+}
+.grupo-formulario{
+    margin-bottom: 20px;
+}
+.btn{
+    position:relative;
+    height: 50px;
+}
+.btn > button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 35px;
+    border: 0px;
+    border-radius: 15px ;
+    background-color: blueviolet;
+    font-weight: bold;
+    color: white;
+    transform: translate(-50%, -50%);
+}/*
+.btn{
+    border: 2px solid black;
+}

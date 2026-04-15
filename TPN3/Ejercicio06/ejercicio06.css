@@ -1,0 +1,38 @@
+header{
+    background-color: rgb(223, 187, 140);
+    padding: 30px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.logo{
+    float: left;
+}
+.lista{
+    float: right;
+}
+.lista > ul > li{
+    list-style-type: none;
+    display: inline;
+}
+footer{
+    background-color: rgb(223, 187, 140);
+    padding: 30px;
+    overflow: hidden;
+}
+footer ul li{
+    list-style-type: none;
+}
+.lista2{
+    float: left;
+}
+.lista3{
+    float: right;
+}
+.logo2{
+    text-align: center;
+    float: none;
+}
+.section1{
+    background-color: beige;
+    padding: 50px;
+}
