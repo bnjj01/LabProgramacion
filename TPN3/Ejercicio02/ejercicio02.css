@@ -6,6 +6,7 @@
     border: 2px solid #ccc;
     width: 400px;
     height: auto;
+    margin: auto;
 }
 .contenedor2{
     overflow: hidden;
