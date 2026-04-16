@@ -39,7 +39,6 @@ input#name{
     height: 35px;
     border-radius: 5px;
     border: 1px solid #ccc;
-
 }
 #select{
     background-color: white;
@@ -77,7 +76,4 @@ input#name{
     font-weight: bold;
     color: white;
     transform: translate(-50%, -50%);
-}/*
-.btn{
-    border: 2px solid black;
 }
