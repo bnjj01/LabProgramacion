@@ -7,27 +7,29 @@
 body{
     padding: 10px;
 }
+
 header{
-    width: 100%;
-    height: 80px;
     background-color: rgb(234, 220, 209);
-    padding: 25px;
-    overflow: hidden;
+    padding: 30px;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
 }
+
 .logo{
-    float: left;
-    padding-left: 30px;
+    padding-left: 20px;
 }
+
 nav{
-    float: right;
     padding-top: 10px;
 }
+
 nav > ul > li{
     list-style-type: none;
     display: inline;
     padding-right: 30px;
 }
+
 a{
     text-decoration: none;
     color: black;
@@ -35,109 +37,56 @@ a{
 a:hover{
     color: aliceblue;
 }
+
 footer{
     background-color: rgb(234, 220, 209);
     padding: 30px;
-    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
 }
+
 footer ul li{
     list-style-type: none;
     margin-bottom: 5px;
 }
+
 .lista2{
-    margin-left: 40px;
-    text-align: center;
-    float: left;
+    align-items: center;
 }
+
 .lista3{
     text-align: center;
     margin-right: 40px;
-    float: right;
 }
+
 .logo2{
     margin-top: 20px;
     text-align: center;
 }
+
 .section1{
-    height: 500px;
     background-color: rgb(242, 239, 234);
-    padding: 50px;
+    padding: 100px;
     text-align: center;
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
-.section1 article{
-    text-align: center;
-}
-.title1{
-    width: 600px;
-    margin: auto;
-    padding-top: 50px;
+
+.section1 .title{
+    width: 30%;
     text-align: center;
     margin-bottom: 50px;
+    font-size: 25px;
 }
-.title1 > h2{
-    font-size: 40px;
-}
-.text1{
-    width: 680px;
-    margin: auto;
+
+.section1 .text{
+    width: 41%;
     margin-bottom: 70px;
     line-height: 25px;
 }
-.section2{
-    padding: 10px;
-    text-align: center;
-    margin-bottom: 10px;
-}
-.title2{
-    width: 600px;
-    margin: auto;
-    padding-top: 50px;
-    margin-bottom: 50px;
-}
-.text2{
-    width: 650px;
-    margin: auto;
-    line-height: 25px;
-    margin-bottom: 50px;
-}
-.section3{
-    background-color: rgb(242, 239, 234);
-    padding: 10px;
-    margin-bottom: 10px;
-}
-.section3 .contenedor-general{
-    padding: 10px;
-    overflow: hidden;
-}
-.section3 .contenedor1{
-    float: right;
-    width: 46%;
-    padding-top: 70px;
-}
-.title3{
-    padding-top: 50px;
-    margin-bottom: 30px;
-}
-.text3{
-    width: 350px;
-    line-height: 25px;
-    margin-bottom: 30px;
-}
-.contenedor2{
-    float: left;
-    width: 46%;
-}
-.image{
-    float: right;
-    line-height: 400px;
-    text-align: center;
-    background-color: white;
-    width: 400px;
-    height: 400px;
-    margin: 20px;
-    
-}
+
 .btn1 button{
     border: 2px solid black;
     background-color: rgb(242, 239, 234);
@@ -146,15 +95,62 @@ footer ul li{
     height: 50px;
     width: 250px;
 }
+
+.section2{
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section2 .title{
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+.section2 .text{
+    width: 35%;
+    line-height: 25px;
+    margin-bottom: 50px;
+}
+
+.section3{
+    background-color: rgb(242, 239, 234);
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.section3 .contenedor{
+    flex-direction: row;
+    width: 40%;
+    padding-top: 70px;
+    margin-left: 40px;
+}
+.section3 .title{
+    padding-top: 50px;
+    margin-bottom: 30px;
+}
+.section3 .text{
+    width: 350px;
+    line-height: 25px;
+    margin-bottom: 30px;
+}
+.section3 .image{
+    line-height: 400px;
+    text-align: center;
+    background-color: white;
+    width: 400px;
+    height: 400px;
+    margin: 20px;
+}
+
 .section4{
     padding: 20px;
-}
-.section4 > .contenedor-general{
-    margin: auto;
-    width: 1100px;
-}
-.section4 .contenedor{
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     text-align: center;
 }
 .section4 .cuadro{
@@ -162,8 +158,8 @@ footer ul li{
     margin: 25px;
     height: 300px;
     width: 300px;
-    display: inline-block;
 }
+
 .section5{
     text-align: center;
     padding: 50px;
@@ -173,21 +169,26 @@ footer ul li{
 .section5 .contenedor{
     background-color: white;
     width: 100%;
-    height: 200px;
     margin: auto;
 }
 .section5 .title{
     padding-top: 50px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
+.section5 .text{
+    padding-bottom: 50px;
+}
+
 .section6{
     text-align: center;
     padding: 50px;
     background-color: rgb(242, 239, 234);
-    height: 300px;
     margin-bottom: 10px;
 }
 .section6 .title{
     padding-top: 50px;
     margin-bottom: 40px;
+}
+.section6 .text{
+    padding-bottom: 50px;
 }
