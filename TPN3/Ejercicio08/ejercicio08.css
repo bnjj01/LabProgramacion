@@ -1,0 +1,187 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+}
+main{
+    margin-top: 80px;
+    width: 30%;
+    border: 1px solid grey;
+    padding: 20px;
+}
+header{
+    margin-bottom: 25px;
+}
+.title-section{
+    width: 45%;
+    margin-top: 15px;
+}
+.row-account{
+    display: flex;
+    justify-content: left;
+}
+.account-data{
+    flex-direction: column;
+    margin-top: 15px;
+    width: 100%;
+    padding-right: 60px;
+    margin-bottom: 10px;
+}
+.username, .user-email, .user-phone{
+    display: flex;
+    flex-direction: column;
+    font-size:small ;
+}
+.username input, .user-email input{
+    height: 30px;
+    background-color: #ece9e9;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.user-phone input{
+    height: 30px;
+    background-color: #ece9e9;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 55%;
+    margin-bottom: 10px;
+}
+
+.title-billing{
+    width: 30%;
+    margin-top: 15px;
+}
+.row-billing{
+    display: flex;
+    justify-content: left;
+}
+.billing-data{
+    margin-top: 15px;
+    font-size: small;
+    display: flex;
+    gap: 20px;
+    flex-grow: 1;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+.user-plan, .user-billing{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.user-plan input, .user-billing select{
+    height: 30px;
+    background-color: #ece9e9;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.row-business{
+    display: flex;
+    justify-content: left;
+}
+.title-business{
+    width: 45%;
+    margin-top: 15px;
+}
+.business-data{
+    flex-direction: column;
+    margin-top: 15px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.street, .city, .user-province, .user-postal, .user-country{
+    display: flex;
+    flex-direction: column;
+    font-size:small ;
+}
+.street input{
+    height: 30px;
+    background-color: #ece9e9;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.group{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.city, .user-province, .user-postal, .user-country{
+    width: 80%;
+}
+.city input, .user-province select, .user-postal input, .user-country select{
+    height: 30px;
+    background-color: #ece9e9;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.row-change{
+    display: flex;
+    justify-content: left;
+}
+.title-change{
+    width: 30%;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.leyenda {
+    font-size: 13px;
+    color: #a0a0a0;
+    font-style: italic;
+    margin-top: 0;
+    width: 80%;
+}
+.change-data{
+    margin-top: 15px;
+    font-size: small;
+    display: flex;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+.user-password, .user-confirm{
+    display: flex;
+    flex-direction: column;
+}
+.user-password input, .user-confirm input{
+    height: 30px;
+    background-color: #ece9e9;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 90%;
+}
+.group-btn{
+    display: flex;
+    justify-content: right;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 20px;
+}
+.btn1 button{
+    background-color: white;
+    height: 30px;
+    width: 80px;
+    border: 0px;
+    color: grey;
+    font-weight: bold;
+}
+.btn2 button{
+    background-color: rgb(71, 148, 198);
+    height: 30px;
+    width: 80px;
+    border: 0px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
