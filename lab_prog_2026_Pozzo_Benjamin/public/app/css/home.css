@@ -1,0 +1,17 @@
+main{
+    min-height: 400px;
+}
+footer{
+    display: flex;
+    justify-content: space-around;
+    color: #918e8e;
+}
+.section-footer1, .section-footer2{
+    text-align: center;
+}
+footer ul li{
+    list-style: none;
+}
+hr{
+    margin: 20px;
+}
