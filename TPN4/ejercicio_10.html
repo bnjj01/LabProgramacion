@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="ejercicio_10.js"></script>
+    <script defer type="text/javascript" src="ejercicio_10.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -11,13 +11,13 @@
         <div class="formulario">
             <label for="select-color">Seleccione un color:</label>
             <select name="select-color" id="select-color">
-                <option value="#">Rojo</option>
-                <option value="#">Verde</option>
-                <option value="#">Azul</option>
-                <option value="#">Amarillo</option>
+                <option value="red">Rojo</option>
+                <option value="green">Verde</option>
+                <option value="blue">Azul</option>
+                <option value="yellow">Amarillo</option>
             </select>
-            <button>Limpiar</button>
-            <button>Cambiar</button>
+            <button id="btn-limpiar">Limpiar</button>
+            <button id="btn-cambiar">Cambiar</button>
         </div>
     </form>
 </body>

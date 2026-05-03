@@ -1,0 +1,9 @@
+input{
+    width: 80px;
+}
+div{
+    margin: 5px;
+}
+label{
+    text-align: right;
+}
