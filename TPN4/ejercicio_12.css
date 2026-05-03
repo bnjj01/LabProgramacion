@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    padding: 20px;
+}
+
+main {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.control {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset.control {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+fieldset label {
+    font-weight: normal;
+}
+
+input[type="text"], input[type="email"], input[type="number"],
+input[type="date"], select, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.input-error {
+    border: 2px solid #dc3545 !important;
+    background-color: #ffe6e6;
+}
+
+.msj-error {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+.msj-error.activo {
+    display: block;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+pre {
+    background-color: #2b2b2b;
+    color: #a9b7c6;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+}

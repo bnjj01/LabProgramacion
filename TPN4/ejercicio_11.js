@@ -38,3 +38,28 @@ botonGenerar.addEventListener("click", function(evento){
 
     contenedorMatrices.innerHTML = matrices;
 })
+botonCalcular.addEventListener("click", function(evento){
+    let filas = parseInt(document.getElementById("fila-A").value);
+    let columnas = parseInt(document.getElementById("columna-A").value);
+
+    const contenedorResultado = document.getElementById("matriz-resultado");
+    let resultado = "<h4>Suma</h4>";
+    for (let i = 0; i < filas; i++){
+        for (let j = 0; j < columnas; j++){
+            let valorA = parseInt(document.getElementById(`A-${i}-${j}`).value);
+            let valorB = parseInt(document.getElementById(`B-${i}-${j}`).value);
+
+            if (isNaN(valorA) || isNaN(valorB)){
+                alert("Por favor ingrese todos los numeros.");
+                return;
+            }
+            let suma = valorA + valorB;
+    
+            resultado += `<input type="number" value="${suma}" readonly style="width: 40px; margin: 2px;">`;
+        }
+
+        resultado += "<br>";
+}
+    
+    contenedorResultado.innerHTML = resultado;
+})

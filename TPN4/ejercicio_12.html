@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ejercicio_12.css">
+    <script defer src="ejercicio_12.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h1>Encuesta de Satisfacción</h1>
+        <p>Ayudanos a evaluar el sistema de gestión de Costumbres Argentinas.</p>
+        
+        <form id="form-encuesta" novalidate>
+            
+            <div class="control">
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" id="nombre" name="nombre">
+                <span class="msj-error" id="err-nombre"></span>
+            </div>
+
+            <div class="control">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email">
+                <span class="msj-error" id="err-email"></span>
+            </div>
+
+            <div class="control">
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" min="18">
+                <span class="msj-error" id="err-edad"></span>
+            </div>
+
+            <fieldset class="control" id="grupo-genero">
+                <legend>Género:</legend>
+                <label><input type="radio" name="genero" value="Femenino"> Femenino</label>
+                <label><input type="radio" name="genero" value="Masculino"> Masculino</label>
+                <label><input type="radio" name="genero" value="Otro"> Otro</label>
+                <span class="msj-error" id="err-genero"></span>
+            </fieldset>
+
+            <div class="control">
+                <label for="satisfaccion">Nivel de satisfacción general:</label>
+                <select id="satisfaccion" name="satisfaccion">
+                    <option value="">Seleccione una opción...</option>
+                    <option value="Excelente">Excelente</option>
+                    <option value="Bueno">Bueno</option>
+                    <option value="Malo">Malo</option>
+                </select>
+                <span class="msj-error" id="err-satisfaccion"></span>
+            </div>
+
+            <fieldset class="control" id="grupo-caracteristicas">
+                <legend>¿Qué características del sistema te gustaron más?</legend>
+                <label><input type="checkbox" name="caracteristicas" value="Inventario"> Control de stock</label>
+                <label><input type="checkbox" name="caracteristicas" value="Ventas"> Registro de ventas</label>
+                <label><input type="checkbox" name="caracteristicas" value="Interfaz"> Diseño visual</label>
+                <span class="msj-error" id="err-caracteristicas"></span>
+            </fieldset>
+
+            <div class="control">
+                <label for="fecha">Fecha de último uso:</label>
+                <input type="date" id="fecha" name="fecha">
+                <span class="msj-error" id="err-fecha"></span>
+            </div>
+
+            <div class="control">
+                <label for="comentarios">Comentarios y sugerencias:</label>
+                <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+                <span class="msj-error" id="err-comentarios"></span>
+            </div>
+
+            <fieldset class="control" id="grupo-recomendar">
+                <legend>¿Recomendarías este sistema?</legend>
+                <label><input type="radio" name="recomendar" value="Si"> Sí</label>
+                <label><input type="radio" name="recomendar" value="No"> No</label>
+                <span class="msj-error" id="err-recomendar"></span>
+            </fieldset>
+
+            <div class="control">
+                <label>
+                    <input type="checkbox" id="novedades" name="novedades">
+                    Deseo recibir actualizaciones del sistema.
+                </label>
+            </div>
+
+           
+            <button type="submit">Enviar Encuesta</button>
+        </form>
+
+        
+        <div id="resultado-container" style="display: none; margin-top: 30px;">
+            <h3>Datos capturados (Formato JSON):</h3>
+            <pre id="impresion-json"></pre>
+        </div>
+    </main>
+</body>
+</html>
