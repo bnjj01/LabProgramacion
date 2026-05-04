@@ -4,7 +4,8 @@ main{
 footer{
     display: flex;
     justify-content: space-around;
-    color: #918e8e;
+    color: #231f1f;
+    background-color: #DB9F75;
 }
 .section-footer1, .section-footer2{
     text-align: center;
