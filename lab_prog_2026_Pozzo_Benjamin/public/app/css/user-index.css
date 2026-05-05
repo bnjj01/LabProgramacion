@@ -1,10 +1,10 @@
 :root {
     --color-1: #122324;
-    --color-2: #2F3A32; 
-    --color-3: #545748; 
-    --color-4: #ffdabf; 
-    --color-5: #804012; 
-    --color-6: #3E2411; 
+    --color-2: #2F3A32;
+    --color-3: #545748;
+    --color-4: #ffdabf;
+    --color-5: #804012;
+    --color-6: #3E2411;
     --color-bg: #F3F4F6;
 }
 
@@ -16,8 +16,7 @@ body {
 .navbar-custom {
     background-color: var(--color-1) !important;
 }
-.navbar-custom .navbar-brand,
-.navbar-custom .nav-link {
+.navbar-custom .navbar-brand, .navbar-custom .nav-link {
     color: var(--color-4) !important;
 }
 .navbar-custom .nav-link:hover {
@@ -27,19 +26,17 @@ body {
     background-color: var(--color-2);
 }
 .navbar-custom .dropdown-item {
-    color: var(--color-4);
+    color: var(--color-4) ;
 }
 .navbar-custom .dropdown-item:hover {
     background-color: var(--color-3);
     color: #ffffff;
 }
 
-
 .title-custom {
     color: var(--color-6);
     border-bottom: 2px solid var(--color-4) !important;
 }
-
 
 .form-label {
     color: var(--color-2);
@@ -55,7 +52,6 @@ body {
     background-color: var(--color-6);
     color: #ffffff;
 }
-
 .btn-custom-secondary {
     background-color: var(--color-3);
     color: var(--color-bg);
@@ -64,6 +60,11 @@ body {
 .btn-custom-secondary:hover {
     background-color: var(--color-2);
     color: #ffffff;
+}
+
+.user-table th{
+    background-color: var(--color-1) !important; 
+    color: var(--color-4);
 }
 
 .footer-custom {

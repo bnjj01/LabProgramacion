@@ -3,93 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FerreteriaCO</title>
-
-    <link rel="stylesheet" href="/public/app/css/home.css">
+    <title>Ferreteria C.O.</title>
 
     <!--Boostrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <!--Script Boostrap-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
-    <style>
-         :root {
-            --color-1: #122324; /* Verde oscuro / casi negro */
-            --color-2: #2F3A32; /* Verde bosque oscuro */
-            --color-3: #545748; /* Verde oliva grisáceo */
-            --color-4: #ffdabf; /* Terracota claro / Durazno */
-            --color-5: #804012; /* Naranja quemado / Óxido */
-            --color-6: #3E2411; /* Marrón oscuro */
-            --color-bg: #F3F4F6; /* Gris muy claro para el fondo */
-        }
+    <link rel="stylesheet" href="/public/app/css/user-index.css">
 
-        body {
-            background-color: var(--color-bg);
-            color: var(--color-1);
-        }
-
-        /* Estilos de la Barra de Navegación */
-        .navbar-custom {
-            background-color: var(--color-1) !important;
-        }
-        .navbar-custom .navbar-brand,
-        .navbar-custom .nav-link {
-            color: var(--color-4) !important;
-        }
-        .navbar-custom .nav-link:hover {
-            color: #ffffff !important;
-        }
-        .navbar-custom .dropdown-menu {
-            background-color: var(--color-2);
-        }
-        .navbar-custom .dropdown-item {
-            color: var(--color-4);
-        }
-        .navbar-custom .dropdown-item:hover {
-            background-color: var(--color-3);
-            color: #ffffff;
-        }
-
-        /* Títulos */
-        .title-custom {
-            color: var(--color-6);
-            border-bottom: 2px solid var(--color-4) !important;
-        }
-
-        /* Labels del formulario */
-        .form-label {
-            color: var(--color-2);
-            font-weight: 600;
-        }
-
-        /* Botones personalizados */
-        .btn-custom-primary {
-            background-color: var(--color-5);
-            color: var(--color-bg);
-            border: none;
-        }
-        .btn-custom-primary:hover {
-            background-color: var(--color-6);
-            color: #ffffff;
-        }
-
-        .btn-custom-secondary {
-            background-color: var(--color-3);
-            color: var(--color-bg);
-            border: none;
-        }
-        .btn-custom-secondary:hover {
-            background-color: var(--color-2);
-            color: #ffffff;
-        }
-
-        /* Footer */
-        .footer-custom {
-            background-color: var(--color-1);
-            color: var(--color-4);
-        }
-    </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
     <header>
@@ -116,12 +40,10 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-                            Mi cuenta
-                        </a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">Mi cuenta</a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="javascript:void(0)">Mis datos</a></li>
-                            <li><hr class="dropdown-divider" style="border-color: var(--color-3);"></li>
+                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="../authentication/index.html">Cerrar sesión</a></li>
                         </ul>
                     </li>
@@ -133,29 +55,26 @@
     
     <main class="container my-4 flex-grow-1" style="min-height: 400px;">
         
-        <!-- Título principal -->
         <div class="row mb-4">
             <div class="col">
                 <h1 class="h2 border-bottom pb-2">Gestión de Usuarios</h1>
             </div>
         </div>
 
-        <!-- Botones de Acción -->
         <div class="row mb-3">
             <div class="col d-flex gap-2">
-                <a href="create.html" class=" btn btn-custom-primary">Alta de una nueva cuenta</a>
-                <a href="javascript:void(0)" class="btn btn-custom-secondary ">Exportar listado</a>
+                <a href="create.html" class="btn btn-custom-primary">Alta de una nueva cuenta</a>
+                <a href="javascript:void(0)" class="btn btn-custom-secondary">Exportar listado</a>
             </div>
         </div>
 
-        <!-- Opciones de Filtrado (Se proponen dos filtros como pide el TP) -->
         <div class="card mb-4 bg-light">
             <div class="card-body">
                 <h5 class="card-title h6 mb-3">Filtrar resultados</h5>
                 <form class="row g-3 align-items-end">
                     <div class="col-md-4">
                         <label for="filtroNombre" class="form-label">Buscar por Usuario / Cuenta</label>
-                        <input type="text" class="form-control" id="filtroNombre" placeholder="Ej: Perez, Juan">
+                        <input type="text" class="form-control" id="filtroNombre" placeholder="Ej: Orlando, Matias">
                     </div>
                     <div class="col-md-3">
                         <label for="filtroPerfil" class="form-label">Perfil</label>
@@ -172,10 +91,9 @@
             </div>
         </div>
 
-        <!-- Tabla de Usuarios -->
         <div class="table-responsive">
             <table class="table table-striped table-hover align-middle border">
-                <thead class="table-dark">
+                <thead class="user-table">
                     <tr>
                         <th>Usuario</th>
                         <th>Cuenta</th>
@@ -185,21 +103,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Fila de datos ficticios -->
                     <tr>
-                        <td>Perez, Juan</td>
-                        <td>jperez</td>
+                        <td>Orlando, Matias</td>
+                        <td>Orlanditomatias</td>
                         <td>Administrador</td>
-                        <td>jperez@ferreteria.com</td>
+                        <td>Orlandito20@google.com</td>
                         <td class="text-center">
                             <a href="edit.html" class="btn btn-sm btn-outline-primary">Editar / Ver</a>
                         </td>
                     </tr>
                     <tr>
-                        <td>Gomez, María</td>
-                        <td>mgomez</td>
+                        <td>Gonzales, Arturo</td>
+                        <td>ArturGonza</td>
                         <td>Operador</td>
-                        <td>mgomez@ferreteria.com</td>
+                        <td>ArturGonza@google.com</td>
                         <td class="text-center">
                             <a href="edit.html" class="btn btn-sm btn-outline-primary">Editar / Ver</a>
                         </td>

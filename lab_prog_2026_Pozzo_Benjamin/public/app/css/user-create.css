@@ -1,7 +1,7 @@
 :root {
-    --color-1: #122324;
+    --color-1: #122324; 
     --color-2: #2F3A32; 
-    --color-3: #545748; 
+    --color-3: #545748;
     --color-4: #ffdabf; 
     --color-5: #804012; 
     --color-6: #3E2411; 
@@ -13,8 +13,9 @@ body {
     color: var(--color-1);
 }
 
+/* Estilos de la Barra de Navegación */
 .navbar-custom {
-    background-color: var(--color-1) !important;
+background-color: var(--color-1) !important;
 }
 .navbar-custom .navbar-brand,
 .navbar-custom .nav-link {
@@ -34,18 +35,17 @@ body {
     color: #ffffff;
 }
 
-
+/* Títulos */
 .title-custom {
     color: var(--color-6);
     border-bottom: 2px solid var(--color-4) !important;
 }
-
-
+/* Labels del formulario */
 .form-label {
     color: var(--color-2);
     font-weight: 600;
 }
-
+/* Botones personalizados */
 .btn-custom-primary {
     background-color: var(--color-5);
     color: var(--color-bg);
@@ -61,10 +61,12 @@ body {
     color: var(--color-bg);
     border: none;
 }
+
 .btn-custom-secondary:hover {
     background-color: var(--color-2);
     color: #ffffff;
 }
+
 
 .footer-custom {
     background-color: var(--color-1);
