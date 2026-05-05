@@ -3,18 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FerreteriaCO</title>
-
-    <link rel="stylesheet" href="/public/app/css/home.css">
-
-    <!--Boostrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Alta de Usuario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!--Script Boostrap-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
+    
+    <!-- Implementación de la paleta de colores personalizada -->
     <style>
-         :root {
+        :root {
             --color-1: #122324; /* Verde oscuro / casi negro */
             --color-2: #2F3A32; /* Verde bosque oscuro */
             --color-3: #545748; /* Verde oliva grisáceo */
@@ -92,8 +86,8 @@
     </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <header>
-            <nav class="navbar navbar-expand-lg navbar-custom">
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container-fluid">
             <a class="navbar-brand" href="../home/index.html">Ferretería</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: var(--color-4);">
@@ -129,88 +123,72 @@
             </div>
         </div>
     </nav>
-    </header>
-    
+
     <main class="container my-4 flex-grow-1" style="min-height: 400px;">
         
-        <!-- Título principal -->
         <div class="row mb-4">
             <div class="col">
-                <h1 class="h2 border-bottom pb-2">Gestión de Usuarios</h1>
+                <h1 class="h3 pb-2 title-custom">Alta de nueva cuenta</h1>
             </div>
         </div>
 
-        <!-- Botones de Acción -->
-        <div class="row mb-3">
-            <div class="col d-flex gap-2">
-                <a href="create.html" class=" btn btn-custom-primary">Alta de una nueva cuenta</a>
-                <a href="javascript:void(0)" class="btn btn-custom-secondary ">Exportar listado</a>
-            </div>
-        </div>
+        <div class="card shadow-sm border-0" style="background-color: #ffffff;">
+            <div class="card-body p-4">
+                <form id="formCrearUsuario">
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="apellido" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" id="apellido" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="nombres" class="form-label">Nombres</label>
+                            <input type="text" class="form-control" id="nombres" required>
+                        </div>
+                    </div>
 
-        <!-- Opciones de Filtrado (Se proponen dos filtros como pide el TP) -->
-        <div class="card mb-4 bg-light">
-            <div class="card-body">
-                <h5 class="card-title h6 mb-3">Filtrar resultados</h5>
-                <form class="row g-3 align-items-end">
-                    <div class="col-md-4">
-                        <label for="filtroNombre" class="form-label">Buscar por Usuario / Cuenta</label>
-                        <input type="text" class="form-control" id="filtroNombre" placeholder="Ej: Perez, Juan">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="cuenta" class="form-label">Cuenta (Nombre de usuario)</label>
+                            <input type="text" class="form-control" id="cuenta" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="perfil" class="form-label">Perfil</label>
+                            <select class="form-select" id="perfil" required>
+                                <option value="" selected disabled>Seleccione un perfil...</option>
+                                <option value="Operador">Operador</option>
+                                <option value="Administrador">Administrador</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <label for="filtroPerfil" class="form-label">Perfil</label>
-                        <select id="filtroPerfil" class="form-select">
-                            <option selected>Todos...</option>
-                            <option value="1">Administrador</option>
-                            <option value="2">Operador</option>
-                        </select>
+
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <label for="correo" class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" id="correo" required>
+                        </div>
                     </div>
-                    <div class="col-md-2">
-                        <button type="submit" class="btn btn-outline-dark w-100">Aplicar Filtros</button>
+
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="clave" class="form-label">Clave</label>
+                            <input type="password" class="form-control" id="clave" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="confirmarClave" class="form-label">Confirmación de la clave</label>
+                            <input type="password" class="form-control" id="confirmarClave" required>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-2 border-top pt-3">
+                        <button type="submit" class="btn btn-custom-primary px-4" onclick="alert('Registro Creado')">Validar y guardar</button>
+                        <a href="index.html" class="btn btn-custom-secondary px-4">Volver al listado</a>
                     </div>
                 </form>
             </div>
         </div>
 
-        <!-- Tabla de Usuarios -->
-        <div class="table-responsive">
-            <table class="table table-striped table-hover align-middle border">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Usuario</th>
-                        <th>Cuenta</th>
-                        <th>Perfil</th>
-                        <th>Correo</th>
-                        <th class="text-center">Opciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Fila de datos ficticios -->
-                    <tr>
-                        <td>Perez, Juan</td>
-                        <td>jperez</td>
-                        <td>Administrador</td>
-                        <td>jperez@ferreteria.com</td>
-                        <td class="text-center">
-                            <a href="edit.html" class="btn btn-sm btn-outline-primary">Editar / Ver</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Gomez, María</td>
-                        <td>mgomez</td>
-                        <td>Operador</td>
-                        <td>mgomez@ferreteria.com</td>
-                        <td class="text-center">
-                            <a href="edit.html" class="btn btn-sm btn-outline-primary">Editar / Ver</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
     </main>
-    
-    <hr></hr>
 
     <footer class="footer-custom text-center py-3 mt-auto">
         <div class="container">
