@@ -8,9 +8,11 @@
     --color-bg: #F3F4F6;
 }
 
-body { background-color: var(--color-bg); color: var(--color-1); }
+body { 
+    background-color: var(--color-bg);
+    color: var(--color-1);
+}
 
-        /* Estilos de la Barra de Navegación */
 .navbar-custom { 
     background-color: var(--color-1) !important; 
 }
@@ -31,18 +33,16 @@ body { background-color: var(--color-bg); color: var(--color-1); }
     color: #ffffff;
 }
 
-    /* Títulos */
 .title-custom {
     color: var(--color-6);
     border-bottom: 2px solid var(--color-4) !important;
 }
 
-        /* Labels del formulario */
 .form-label {
     color: var(--color-2);
     font-weight: 600;
 }
-        /* Botones personalizados */
+
 .btn-custom-primary {
     background-color: var(--color-5);
     color: var(--color-bg);
@@ -62,7 +62,12 @@ body { background-color: var(--color-bg); color: var(--color-1); }
     color: #ffffff;
 }
 
-/* Footer */
+.detalle-cuenta{
+    background-color: var(--color-bg);
+    border-color: var(--color-4);
+    color: var(--color-2);
+}
+
 .footer-custom {
     background-color: var(--color-1); color: var(--color-4);
 }
