@@ -45,14 +45,14 @@ background-color: var(--color-1) !important;
     color: var(--color-2);
     font-weight: 600;
 }
-/* Botones personalizados */
+
 .btn-custom-primary {
-    background-color: var(--color-5);
+    background-color: var(--color-2);
     color: var(--color-bg);
     border: none;
 }
 .btn-custom-primary:hover {
-    background-color: var(--color-6);
+    background-color: var(--color-1);
     color: #ffffff;
 }
 

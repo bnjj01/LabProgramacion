@@ -13,6 +13,7 @@
     
     <link rel="stylesheet" href="/public/app/css/user-edit.css">
     
+    <script defer src="/public/app/js/edit-user.js"></script>
 </head>
 <body class="d-flex flex-column min-vh-100">
     <header>
@@ -135,7 +136,6 @@
                 </div>
 
                 <form action="#" method="POST">
-                    
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="apellido" class="form-label">Apellido</label>
@@ -180,11 +180,11 @@
                     </div>
 
                     <div class="d-flex gap-2 border-top pt-3">
-                        <button type="button" class="btn btn-warning px-4">Editar</button>
+                        <button type="button" class="btn btn-warning px-4" id="btn-editar">Editar</button>
 
-                        <button type="button" class="btn btn-success px-4" onclick="alert('Registro actualizado')">Actualizar</button>
+                        <button type="button" class="btn btn-success px-4 d-none" id="btn-actualizar">Actualizar</button>
                         
-                        <button type="button" class="btn btn-secondary px-4">Cancelar</button>
+                        <button type="button" class="btn btn-secondary px-4" id="btn-cancelar">Cancelar</button>
                         
                         <a href="index.html" class="btn btn-custom-secondary px-4 ms-auto">Volver al listado</a>
                     </div>

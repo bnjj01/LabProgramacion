@@ -44,12 +44,12 @@ body {
 }
 
 .btn-custom-primary {
-    background-color: var(--color-5);
-    color: var(--color-bg);
-    border: none;
+    background-color: var(--color-bg);
+    color: var(--color-1);
+    border: 1px solid var(--color-1);
 }
 .btn-custom-primary:hover {
-    background-color: var(--color-6);
+    background-color: var(--color-2);
     color: #ffffff;
 }
 .btn-custom-secondary {
