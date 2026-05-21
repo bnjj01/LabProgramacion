@@ -1,0 +1,5 @@
+const userService = {
+    load(id){
+        
+    }
+}
