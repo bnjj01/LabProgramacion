@@ -1,10 +1,16 @@
+
+
+
+
+/*
 //funciones flecha
-const saludar = nombre=>{
+const saludar = nombre => {
     let frase = `Hola ${nombre} ¿Como estas?`
     document.write(frase);
 }
 
 saludar("Benja Anashex")
+
 // const saludar = function(nombre){
 //     let frase = `Hola ${nombre} ¿Como estas?`;
 //     document.write(frase);
