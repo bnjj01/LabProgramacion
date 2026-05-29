@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", function(){
             alert('las contraseñás no coinciden, por favor introducelas de nuevo');
             return;
         }
-    
+        
         mensaje.classList.remove("d-none");
         formulario.reset();
-
+        
         setTimeout(()=>{
             mensaje.classList.add("d-none");
         }, 9000)
