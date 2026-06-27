@@ -1,8 +1,8 @@
-import userController from "./controller.js";
+import itemController from "./controller.js";
 
 document.addEventListener("DOMContentLoaded", function(){
 
-    userController.list();
+    itemController.list();
 
     const botonExportar = document.getElementById('btn-exportar');
 

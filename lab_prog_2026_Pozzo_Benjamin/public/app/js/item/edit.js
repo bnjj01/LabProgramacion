@@ -1,8 +1,8 @@
-import userController from "./controller.js";
+import itemController from "./controller.js";
 
 document.addEventListener("DOMContentLoaded", function(){
 
-    userController.load(1);
+    itemController.load(1);
 
     const botonEditar = document.getElementById("btn-editar");
     const botonActualizar = document.getElementById("btn-actualizar");
@@ -11,17 +11,18 @@ document.addEventListener("DOMContentLoaded", function(){
     const campos = document.querySelectorAll(".form-control, .form-select");
     const formulario = document.querySelector("form");
 
+
     if(botonActualizar && botonCancelar && botonEditar){
         botonEditar.addEventListener("click", function(evento){
-            campos.forEach(campo=>{
-                campo.disabled = false;
-            });
+            campos.forEach(campo =>
+                campo.disabled = false
+            );
             
             botonEditar.classList.add("d-none");
             botonActualizar.classList.remove("d-none");
             botonCancelar.classList.remove("d-none");
 
-            document.getElementById("apellido").focus();
+            document.getElementById("codigo").focus();
         })
 
         botonCancelar.addEventListener("click", function(evento){
@@ -40,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function(){
             botonActualizar.addEventListener("click",function(evento){
                 evento.preventDefault();
                 
-                const exito = userController.update(); 
+                const exito = itemController.update(); 
                 if (exito){
                     botonActualizar.classList.add("d-none");
                     botonCancelar.classList.add("d-none");
@@ -53,12 +54,9 @@ document.addEventListener("DOMContentLoaded", function(){
             botonEliminar.addEventListener("click",function(evento){
                 evento.preventDefault();
 
-                const idActual = parseInt(document.getElementById('user-id').value);
-                userController.delete(idActual);
+                const idActual = parseInt(document.getElementById('item-id').value);
+                itemController.delete(idActual);
             })
         }
     }
-
-    
-
 });

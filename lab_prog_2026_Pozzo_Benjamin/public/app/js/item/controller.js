@@ -1,62 +1,56 @@
-import userService from "./service.js";
+import itemService from "./service.js";
 
-const userController ={
+const itemController ={
     load(id) {
-        const user = userService.load(id);
-        if (user) {
-            document.getElementById('apellido').value = user.apellido;
-            document.getElementById('nombre').value = user.nombre;
-            document.getElementById('perfil').value = user.perfil;
-            document.getElementById('correo').value = user.correo;
-            console.log("Usuario cargado en el formulario:", user);
+        const item = itemService.load(id);
+        if (item) {
+            document.getElementById('codigo').value = item.codigo || "";
+            document.getElementById('nombre').value = item.nombre || "";
+            document.getElementById('categoria').value = item.categoria || "";
+            document.getElementById('precio').value = item.precio || "";
+            document.getElementById('stock').value = item.stock || "";
 
-            const inputId = document.getElementById('user-id');
+            const inputDescripcion = document.getElementById('descripcion')
+            if(inputDescripcion){
+                inputDescripcion.value = item.descripcion || '';
+            }
+
+            console.log("Producto cargado en el formulario:", item);
+
+            const inputId = document.getElementById('item-id');
             if(inputId){
-                inputId.value = user.id;
+                inputId.value = item.id;
             }
 
         } else {
-            console.error("Usuario no encontrado con ID:", id);
+            console.error("Producto no encontrado con ID:", id);
         }
     },
     save() {
-        const nuevoUsuario = {
-            apellido: document.getElementById('apellido').value,
+        const nuevoProducto = {
+            codigo: document.getElementById('codigo').value,
             nombre: document.getElementById('nombre').value,
-            cuenta: document.getElementById('cuenta').value,
-            perfil: document.getElementById('perfil').value,
-            correo: document.getElementById('correo').value,
-            clave: document.getElementById('clave').value,
-            confirmarClave: document.getElementById('confirmarClave').value
+            categoria: document.getElementById('categoria').value,
+            precio: document.getElementById('precio').value,
+            stock: document.getElementById('stock').value,
         };
 
-        const usuarioGuardado = userService.save(nuevoUsuario);
+        const productoGuardado = itemService.save(nuevoProducto);
 
         this.resetForm();
-        alert("Registro creado con éxito.");
     },
 
     update() {
-        const clave = document.getElementById('clave').value;
-        const confirmarClave = document.getElementById('confirmarClave').value;
-
-        if(clave !== confirmarClave){
-            alert('Erro: Las contraseñas no coinciden. Por favor verifíquelas.');
-            return false;
-        }
-
-        const usuarioModificado = {
-            id: parseInt(document.getElementById('user-id').value),
-            apellido: document.getElementById('apellido').value,
+        const productoModificado = {
+            id: parseInt(document.getElementById('item-id').value),
+            codigo: document.getElementById('codigo').value,
             nombre: document.getElementById('nombre').value,
-            perfil: document.getElementById('perfil').value,
-            correo: document.getElementById('correo').value,
-            cuenta: document.getElementById('cuenta').value,
-            clave: clave,
-            confirmarClave: confirmarClave
+            categoria: document.getElementById('categoria').value,
+            precio: document.getElementById('precio').value,
+            stock: document.getElementById('stock').value,
         };
 
-        const exito = userService.update(usuarioModificado);
+        const exito = itemService.update(productoModificado);
         
         if (exito) {
             this.enableForm(false);
@@ -69,21 +63,21 @@ const userController ={
     },
 
     delete(id) {
-        const verificado = confirm("¿Estás seguro de que deseas eliminar este usuario?");
+        const verificado = confirm("¿Estás seguro de que deseas eliminar este producto?");
         if (verificado) {
-            const user = userService.load(id);
-            const eliminado = userService.delete(id);
+            const item = itemService.load(id);
+            const eliminado = itemService.delete(id);
 
             if (eliminado) {
                 const contenedor = document.querySelector('main.container');
-                alert("Usuario eliminado correctamente.");
+                alert("Producto eliminado correctamente.");
                 this.list();
 
-                    if (contenedor && user){
+                    if (contenedor && item){
                         contenedor.innerHTML = `
                             <div class="alert alert-danger text-center mt-5">
-                                <h4>Cuenta Eliminada</h4>
-                                <p>Se ha eliminado correctamente al usuario <strong>${user.nombre}</strong> (Cuenta: ${user.cuenta}).</p>
+                                <h4>Producto Eliminado</h4>
+                                <p>Se ha eliminado correctamente el producto <strong>${item.nombre}</strong> (Producto: ${item.cuenta}).</p>
                                 <hr>
                                 <a href="index.html" class="btn btn-primary mt-3">Volver al listado de usuarios</a>
                             </div>
@@ -94,30 +88,31 @@ const userController ={
     },
 
     list() {
-        const usuarios = userService.list();
-        const tabla = document.getElementById('tablaUsuarios');
+        const items = itemService.list();
+        const tbody = document.querySelector('#tabla-items tbody');
         
-        if (!tabla) return;
+        if (!tbody) return;
 
-        tabla.innerHTML = '';
+        tbody.innerHTML = '';
 
-        if (usuarios.length === 0) {
-            tabla.innerHTML = `<tr><td colspan="5" class="text-center">No hay registros disponibles</td></tr>`;
+        if (items.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="6" class="text-center">No hay productps en el inventario</td></tr>`;
             return;
         }
 
-        usuarios.forEach(user => {
+        items.forEach(item => {
             const fila = document.createElement('tr');
             fila.innerHTML = `
-                <td>${user.cuenta || ''}</td>
-                <td>${user.nombre || ''}</td>
-                <td>${user.perfil || ''}</td>
-                <td>${user.correo || ''}</td>
+                <td>${item.codigo || ''}</td>
+                <td>${item.nombre || ''}</td>
+                <td>${item.categoria || ''}</td>
+                <td>${item.precio || 0}</td>
+                <td>${item.stock || 0}</td>
                 <td>
-                    <button class="btn btn-sm btn-warning" onclick="location.href='edit.html?id=${user.id}'">Editar</button>
+                    <button class="btn btn-sm btn-outline-primary" onclick="location.href='edit.html?id=${item.id}'">Editar</button>
                 </td>
             `;
-            tabla.appendChild(fila);
+            tbody.appendChild(fila);
         });
     },
 
@@ -142,4 +137,4 @@ const userController ={
     }
 };
 
-export default userController;
+export default itemController;

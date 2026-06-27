@@ -33,7 +33,6 @@ const userController ={
         const usuarioGuardado = userService.save(nuevoUsuario);
 
         this.resetForm();
-        alert("Registro creado con éxito.");
     },
 
     update() {
