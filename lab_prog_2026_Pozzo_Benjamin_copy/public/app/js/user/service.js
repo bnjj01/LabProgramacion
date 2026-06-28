@@ -11,15 +11,9 @@ const userService = {
         return users.find(user => user.id === id);
     },
     save(user){
-        return new Promise((resolve, reject) => {
-            try {
-                user.id = nextID++;
-                users.push(user);
-                resolve(user);
-            } catch (error) {
-                reject(error);
-            }
-        });
+        user.id=nextID++;
+        users.push(user);
+        return user;
     },
     update(updatedUser){
         const index = users.findIndex(user => user.id === updatedUser.id);

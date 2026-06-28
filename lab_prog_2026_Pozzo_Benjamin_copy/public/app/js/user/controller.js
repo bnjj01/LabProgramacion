@@ -20,40 +20,19 @@ const userController ={
         }
     },
     save() {
-        const clave = document.getElementById("clave").value;
-        const confirmarClave = document.getElementById("confirmarClave").value;
-
-        if (clave !== confirmarClave){
-            alert('las contraseñás no coinciden, por favor introducelas de nuevo');
-            return;
-        }
-
         const nuevoUsuario = {
             apellido: document.getElementById('apellido').value,
             nombre: document.getElementById('nombre').value,
             cuenta: document.getElementById('cuenta').value,
             perfil: document.getElementById('perfil').value,
             correo: document.getElementById('correo').value,
-            clave: clave
+            clave: document.getElementById('clave').value,
+            confirmarClave: document.getElementById('confirmarClave').value
         };
 
+        const usuarioGuardado = userService.save(nuevoUsuario);
 
-        userService.save(nuevoUsuario)
-            .then(() => {
-                const mensaje = document.getElementById("message");
-                if (mensaje) {
-                    mensaje.classList.remove("d-none");
-                    setTimeout(() => {
-                        mensaje.classList.add("d-none");
-                    }, 3000);
-                }
-
-                this.resetForm();
-            })
-            .catch(error => {
-                console.error("Error al guardar usuario:", error);
-                alert('Hubo un error al guardar el usuario. Por favor, inténtelo nuevamente.');
-            });
+        this.resetForm();
     },
 
     update() {
