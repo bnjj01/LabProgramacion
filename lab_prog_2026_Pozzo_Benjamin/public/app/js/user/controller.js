@@ -1,164 +1,90 @@
 import userService from "./service.js";
+import { view } from "./view.js";
 
-const userController ={
-    load(id) {
-        const user = userService.load(id);
+const userController = {
+    init: () => {
+        view.init();
+    },
+
+    async list(filters = {}) {
+        const usuarios = await userService.list(filters);
+        view.listUsers(usuarios);
+    },
+
+    async load(id) {
+        const user = await userService.load(id);
         if (user) {
-            document.getElementById('apellido').value = user.apellido;
-            document.getElementById('nombre').value = user.nombre;
-            document.getElementById('perfil').value = user.perfil;
-            document.getElementById('correo').value = user.correo;
-            console.log("Usuario cargado en el formulario:", user);
+            view.fillForm(user);
+            view.toggleForm(false);
+        } else {
+            alert("No se pudo cargar la información del usuario.");
+        }
+    },
 
-            const inputId = document.getElementById('user-id');
-            if(inputId){
-                inputId.value = user.id;
+    async save(formData) {
+        const data = Object.fromEntries(formData);
+
+        if (data.clave !== data.confirmarClave) {
+            alert('Las contraseñas no coinciden. Por favor, intentalo de nuevo.');
+            return false;
+        }
+
+        try {
+            const result = await userService.save(data);
+            if (result.success) {
+                alert("Usuario registrado con éxito.");
+                view.resetForm();
+                window.location.href = window.APP_URL + 'user';
+            } else {
+                alert("Error: " + result.message);
             }
-
-        } else {
-            console.error("Usuario no encontrado con ID:", id);
+        } catch (error) {
+            console.error("Error fatal:", error);
+            alert("Ocurrió un error inesperado de conexión.");
         }
     },
-    save() {
-        const clave = document.getElementById("clave").value;
-        const confirmarClave = document.getElementById("confirmarClave").value;
 
-        if (clave !== confirmarClave){
-            alert('las contraseñás no coinciden, por favor introducelas de nuevo');
-            return;
-        }
-
-        const nuevoUsuario = {
-            apellido: document.getElementById('apellido').value,
-            nombre: document.getElementById('nombre').value,
-            cuenta: document.getElementById('cuenta').value,
-            perfil: document.getElementById('perfil').value,
-            correo: document.getElementById('correo').value,
-            clave: clave
-        };
-
-
-        userService.save(nuevoUsuario)
-            .then(() => {
-                const mensaje = document.getElementById("message");
-                if (mensaje) {
-                    mensaje.classList.remove("d-none");
-                    setTimeout(() => {
-                        mensaje.classList.add("d-none");
-                    }, 3000);
-                }
-
-                this.resetForm();
-            })
-            .catch(error => {
-                console.error("Error al guardar usuario:", error);
-                alert('Hubo un error al guardar el usuario. Por favor, inténtelo nuevamente.');
-            });
-    },
-
-    update() {
-        const clave = document.getElementById('clave').value;
-        const confirmarClave = document.getElementById('confirmarClave').value;
-
-        if(clave !== confirmarClave){
-            alert('Erro: Las contraseñas no coinciden. Por favor verifíquelas.');
-            return false;
-        }
-
-        const usuarioModificado = {
-            id: parseInt(document.getElementById('user-id').value),
-            apellido: document.getElementById('apellido').value,
-            nombre: document.getElementById('nombre').value,
-            perfil: document.getElementById('perfil').value,
-            correo: document.getElementById('correo').value,
-            cuenta: document.getElementById('cuenta').value,
-            clave: clave,
-            confirmarClave: confirmarClave
-        };
-
-        const exito = userService.update(usuarioModificado);
+    async update(formData) {
+        const data = Object.fromEntries(formData);
         
-        if (exito) {
-            this.enableForm(false);
-            alert("Registro actualizado.");
-            return true;
-        } else {
-            alert("Error: No se pudo actualizar el registro.");
+        const inputId = document.getElementById('user-id');
+        if (inputId) {
+            data.id = parseInt(inputId.value);
+        }
+
+        if (data.clave && data.clave !== data.confirmarClave) {
+            alert('Las contraseñas no coinciden. Por favor verifíquelas.');
             return false;
+        }
+
+        try {
+            const result = await userService.update(data);
+            if (result.success) {
+                alert("Registro actualizado.");
+                window.location.href = window.APP_URL + 'user';
+            } else {
+                alert("Error: " + result.message);
+            }
+        } catch (error) {
+            console.error("Error fatal:", error);
         }
     },
 
-    delete(id) {
+    async delete(id) {
         const verificado = confirm("¿Estás seguro de que deseas eliminar este usuario?");
         if (verificado) {
-            const user = userService.load(id);
-            const eliminado = userService.delete(id);
-
-            if (eliminado) {
-                const contenedor = document.querySelector('main.container');
-                alert("Usuario eliminado correctamente.");
-                this.list();
-
-                    if (contenedor && user){
-                        contenedor.innerHTML = `
-                            <div class="alert alert-danger text-center mt-5">
-                                <h4>Cuenta Eliminada</h4>
-                                <p>Se ha eliminado correctamente al usuario <strong>${user.nombre}</strong> (Cuenta: ${user.cuenta}).</p>
-                                <hr>
-                                <a href="index.html" class="btn btn-primary mt-3">Volver al listado de usuarios</a>
-                            </div>
-                        `
-                    }
+            try {
+                const result = await userService.delete(id);
+                if (result.success) {
+                    alert("Usuario eliminado correctamente.");
+                    window.location.href = window.APP_URL + 'user';
+                } else {
+                    alert("Error: " + result.message);
+                }
+            } catch (error) {
+                console.error("Error al eliminar:", error);
             }
         }
-    },
-
-    list() {
-        const usuarios = userService.list();
-        const tabla = document.getElementById('tablaUsuarios');
-        
-        if (!tabla) return;
-
-        tabla.innerHTML = '';
-
-        if (usuarios.length === 0) {
-            tabla.innerHTML = `<tr><td colspan="5" class="text-center">No hay registros disponibles</td></tr>`;
-            return;
-        }
-
-        usuarios.forEach(user => {
-            const fila = document.createElement('tr');
-            fila.innerHTML = `
-                <td>${user.cuenta || ''}</td>
-                <td>${user.nombre || ''}</td>
-                <td>${user.perfil || ''}</td>
-                <td>${user.correo || ''}</td>
-                <td>
-                    <button class="btn btn-sm btn-warning" onclick="location.href='edit.html?id=${user.id}'">Editar</button>
-                </td>
-            `;
-            tabla.appendChild(fila);
-        });
-    },
-
-    exportToPDF() { // 
-        console.log("Exportando el listado a formato PDF...");
-
-        window.print();
-    },
-
-    resetForm() { // 
-        const formulario = document.querySelector('form');
-        if (formulario) {
-            formulario.reset();
-        }
-    },
-
-    enableForm(estado) { 
-        const controles = document.querySelectorAll('form input, form select, form textarea, form button[type="submit"]');
-        controles.forEach(control => {
-            control.disabled = !estado;
-        });
     }
 };
 

@@ -1,16 +1,23 @@
 import itemController from "./controller.js";
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", async function() {
+    
+    itemController.init();
+    const formFiltros = document.getElementById('item-form');
+    formFiltros.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(formFiltros);
+        const filtros = {};
 
-    itemController.list();
+        formData.forEach((value, key) => {
+            if (value.trim() !== "") {
+                filtros[key] = value;
+            }
+        });
+        
+        await itemController.list(filtros);
+    });
 
-    const botonExportar = document.getElementById('btn-exportar');
-
-    if (botonExportar){
-        botonExportar.addEventListener('click', function(evento){
-                evento.preventDefault();
-
-                userController.exportToPDF();
-        })
-    }
-})
+    await itemController.list();
+});

@@ -1,49 +1,71 @@
-let items = [
-    {
-        id: 1, 
-        codigo: "MAR-001", 
-        nombre: "Martillo STANLEY", 
-        categoria: "1", 
-        precio: 130000, 
-        stock: 34, 
-        descripcion: "El martillo para clavos Stanley con un mango de madera resistente y cómodo, este martillo es perfecto para una variedad de tareas.",
-    },
-    {
-        id: 2, 
-        codigo: "TAL-100", 
-        nombre: "Taladro STANLEY", 
-        categoria: "2", 
-        precio: 222900, 
-        stock: 24,
-        descripcion: "Taladro percutor de 600W, ideal para trabajos de construcción y mampostería.",
-    }
-];
-let nextID = 3;
-
 const itemService = {
-    load(id){
-        return items.find(item => item.id === id);
-    },
-    save(item){
-        item.id=nextID++;
-        items.push(item);
-        return item;
-    },
-    update(updatedItem){
-        const index = items.findIndex(item => item.id === updatedItem.id);
-        if (index != -1){
-            items [index] = updatedItem;
-            return true;
+    
+    save: async (item) => {
+        try {
+            const response = await fetch(window.APP_URL + 'item/save', {
+                method: "POST",
+                headers: { "Content-Type": "application/json", "Accept": "application/json" },
+                body: JSON.stringify(item)
+            });
+            if (!response.ok) throw new Error(response.statusText);
+            
+            const data = await response.json();
+            alert(data.message);
+            return data.success;
+        } catch (error) {
+            console.error("Error en save:", error);
+            return false;
         }
-        return false;
     },
-    delete(id){
-        const initialLength = items.length;
-        items = items.filter(item => item.id !== id);
-        return items.length < initialLength;
+    update: async (updatedItem) => {
+        try {
+            const response = await fetch(window.APP_URL + 'item/update', {
+                method: "POST",
+                headers: { "Content-Type": "application/json", "Accept": "application/json" },
+                body: JSON.stringify(updatedItem)
+            });
+            if (!response.ok) throw new Error(response.statusText);
+            
+            const data = await response.json();
+            alert(data.message);
+            return data.success;
+        } catch (error) {
+            console.error("Error en update:", error);
+            return false;
+        }
     },
-    list(){
-        return items;
+    delete: async (id) => {
+        try {
+            const response = await fetch(window.APP_URL + 'item/delete', {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams({ id: id }) 
+            });
+            if (!response.ok) throw new Error(response.statusText);
+            
+            const data = await response.json();
+            alert(data.message);
+            return data.success;
+        } catch (error) {
+            console.error("Error en delete:", error);
+            return false;
+        }
+    },
+    list: async (filters = {}) => {
+        try {
+            const response = await fetch(window.APP_URL + 'item/list', {
+                method: "POST",
+                headers: { "Content-Type": "application/json", "Accept": "application/json" },
+                body: JSON.stringify(filters)
+            });
+            if (!response.ok) throw new Error(response.statusText);
+            
+            const data = await response.json();
+            return data.success ? data.data : [];
+        } catch (error) {
+            console.error("Error en list:", error);
+            return [];
+        }
     }
-}
+};
 export default itemService;

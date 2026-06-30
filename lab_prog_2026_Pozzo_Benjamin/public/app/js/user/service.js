@@ -1,41 +1,65 @@
-let users = [
-    {id: 1,apellido:"Orlando",nombre:"Matias",cuenta:"Orlanditomatias",perfil:"Administrador",correo:"Orlandito20@google.com",clave:"Orlando123",confirmarClave: "orlando123"},
-    {id: 2,apellido:"Gonzalez",nombre:"Arturo",cuenta:"ArturGonza",perfil:"Operador",correo:"ArturGonza@google.com",clave:"Gonzalez123",confirmarClave: "Gonzalez123"}
-
-];
-let nextID = 2;
-
-
 const userService = {
-    load(id){
-        return users.find(user => user.id === id);
-    },
-    save(user){
-        return new Promise((resolve, reject) => {
-            try {
-                user.id = nextID++;
-                users.push(user);
-                resolve(user);
-            } catch (error) {
-                reject(error);
-            }
-        });
-    },
-    update(updatedUser){
-        const index = users.findIndex(user => user.id === updatedUser.id);
-        if (index != -1){
-            users [index] = updatedUser;
-            return true;
+    async list(filters = {}) {
+        try {
+            const response = await fetch(window.APP_URL + 'user/list', {
+                method: 'POST',
+                body: JSON.stringify(filters),
+                headers: { 'Content-Type': 'application/json' }
+            });
+            const result = await response.json();
+            return result.data || [];
+        } catch (error) {
+            console.error("Error al listar usuarios:", error);
+            return [];
         }
-        return false;
     },
-    delete(id){
-        const initialLength = users.length;
-        users = users.filter(user => user.id !== id);
-        return users.length < initialLength;
+
+    async load(id) {
+        try {
+            const response = await fetch(window.APP_URL + 'user/load', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: parseInt(id) })
+            });
+            const result = await response.json();
+            
+            if (!result.success) {
+                console.error("🔥 MOTIVO DEL ERROR EN PHP:", result.message);
+            }
+            
+            return result.success ? result.data : null;
+        } catch (error) {
+            console.error("Error de conexión al cargar el usuario:", error);
+            return null;
+        }
     },
-    list(){
-        return users;
+
+    async save(data) {
+        const response = await fetch(window.APP_URL + 'user/save', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        return await response.json();
+    },
+
+    async update(data) {
+        const response = await fetch(window.APP_URL + 'user/update', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        return await response.json();
+    },
+
+    async delete(id) {
+        const response = await fetch(window.APP_URL + 'user/delete', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: parseInt(id) })
+        });
+        return await response.json();
     }
-}
+};
+
 export default userService;
