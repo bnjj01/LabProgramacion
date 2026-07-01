@@ -79,8 +79,9 @@ class ClientController extends BaseController {
 
     public function delete(Request $request, Response $response){
         try {
+            $id = $request->getDataFromInput()['id'] ?? 0;
             $service = new ClientService();
-            $service->remove($request->getId());
+            $service->remove($id);
             $response->setMessage("Cliente eliminado con éxito.");
             $response->send(true);
         } catch (\Throwable $e) {

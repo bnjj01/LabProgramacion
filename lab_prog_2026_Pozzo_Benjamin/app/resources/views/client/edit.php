@@ -15,11 +15,11 @@
 
             <div class="row mb-4 border-bottom pb-3">
                 <div class="col-md-4">
-                    <label for="tipo" class="form-label fw-bold">Tipo de Cliente</label>
-                    <select class="form-select border-primary" name="tipo" id="tipo" disabled required>
-                        <option value="Particular">Persona Particular</option>
-                        <option value="Empresa">Empresa / Jurídico</option>
-                    </select>
+                    <label class="form-label fw-bold text-muted">Tipo de Cliente</label>
+                    <div class="fs-5 text-dark fw-bold mb-0">
+                        <?= htmlspecialchars($this->client['tipo'] ?? '') ?>
+                    </div>
+                    <input type="hidden" id="tipo" value="<?= htmlspecialchars($this->client['tipo'] ?? '') ?>">
                 </div>
             </div>
 

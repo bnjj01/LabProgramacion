@@ -29,18 +29,23 @@ final class ClientDao extends BaseDao implements InterfaceDao {
         if (empty($data['id'])) throw new \Exception("ID requerido para actualizar.");
         
         $sql = "UPDATE {$this->table} 
-                SET tipo = :tipo, apellido = :apellido, nombres = :nombres, dni = :dni, 
+                SET apellido = :apellido, nombres = :nombres, dni = :dni, 
                     razon_social = :razon_social, cuit = :cuit, telefono = :telefono, 
                     correo = :correo, domicilio = :domicilio 
                 WHERE id = :id";
+        unset($data['tipo']);
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);
     }
 
     public function delete(int $id): void {
-        $sql = "UPDATE {$this->table} SET estado = 0 WHERE id = :id"; // Borrado lógico para proteger las ventas
+        $sql = "UPDATE {$this->table} SET estado = 0 WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['id' => $id]);
+
+        if ($stmt->rowCount() == 0) {
+            throw new \Exception("No se encontró el cliente o ya estaba eliminado.");
+        }
     }
 
     public function list(array $filters = []): array {
