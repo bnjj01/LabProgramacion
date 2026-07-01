@@ -49,7 +49,6 @@ final class ClientDao extends BaseDao implements InterfaceDao {
     }
 
     public function list(array $filters = []): array {
-        // Traemos solo los activos (estado = 1)
         $sql = "SELECT * FROM {$this->table} WHERE estado = 1";
         $clauses = [];
         $parameters = [];
@@ -57,6 +56,11 @@ final class ClientDao extends BaseDao implements InterfaceDao {
         if (isset($filters['filtroBusqueda']) && $filters['filtroBusqueda'] !== '') {
             $clauses[] = "(apellido LIKE :filtro OR nombres LIKE :filtro OR razon_social LIKE :filtro OR dni LIKE :filtro OR cuit LIKE :filtro)";
             $parameters['filtro'] = "%" . $filters['filtroBusqueda'] . "%";
+        }
+
+        if (isset($filters['filtroTipo']) && $filters['filtroTipo'] !== '') {
+            $clauses[] = "tipo = :tipo";
+            $parameters['tipo'] = $filters['filtroTipo'];
         }
 
         if (count($clauses) > 0) {

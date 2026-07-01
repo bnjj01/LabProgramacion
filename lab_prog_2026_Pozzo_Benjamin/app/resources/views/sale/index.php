@@ -7,7 +7,7 @@
 <div class="row mb-3">
     <div class="col d-flex gap-2">
         <a href="<?= APP_URL ?>sale/create" class="btn btn-custom-primary">Registrar Nueva Venta</a>
-        <a href="javascript:void(0)" class="btn btn-custom-secondary" id="btn-exportar">Exportar listado</a>
+        <a href="<?= APP_URL ?>sale/exportPdf" target="_blank" class="btn btn-custom-secondary" id="btn-exportar">Exportar listado</a>
     </div>
 </div>
 

@@ -17,6 +17,16 @@
                 <label for="filtroBusqueda" class="form-label">Buscar por Nombre, Razón Social, DNI o CUIT</label>
                 <input type="text" name="filtroBusqueda" class="form-control" id="filtroBusqueda" placeholder="Ej: Juan Perez o 20334445551">
             </div>
+            
+            <div class="col-md-3">
+                <label for="filtroTipo" class="form-label">Tipo de Cliente</label>
+                <select name="filtroTipo" id="filtroTipo" class="form-select">
+                    <option value="" selected>Todos...</option>
+                    <option value="Particular">Particular</option>
+                    <option value="Empresa">Empresa</option>
+                </select>
+            </div>
+            
             <div class="col-md-2">
                 <button type="submit" class="btn btn-outline-dark w-100">Buscar</button>
             </div>

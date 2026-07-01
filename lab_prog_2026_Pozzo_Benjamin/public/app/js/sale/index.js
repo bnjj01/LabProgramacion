@@ -28,17 +28,15 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <td class="fw-bold">$ ${parseFloat(v.total).toFixed(2)}</td>
                     <td>${estadoHtml}</td>
                     <td class="text-center">
-                        <a href="${window.APP_URL}sale/view/${v.id}" class="btn btn-sm btn-outline-primary">Ver</a>
+                        <a href="${window.APP_URL}sale/edit/${v.id}" class="btn btn-sm btn-outline-primary">Editar</a>
                     </td>
                 </tr>
             `;
         });
     };
 
-    // 1. Cargar la tabla al iniciar
     await renderTable();
 
-    // 2. Escuchar el buscador
     const formFiltros = document.getElementById("form-filtros-ventas");
     if (formFiltros) {
         formFiltros.addEventListener("submit", async (e) => {

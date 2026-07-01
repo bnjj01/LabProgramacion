@@ -26,4 +26,17 @@ final class SaleService extends BaseService {
     public function list(array $filters = []): array {
         return $this->dao->list($filters);
     }
+
+    public function update(array $data): void {
+        if (empty($data['id'])) {
+            throw new \Exception('La venta no tiene ID válido.');
+        }
+        $this->dao->update($data);
+    }
+    public function remove(int $id): void {
+        if ($id <= 0) {
+            throw new \Exception('El ID de la venta no es válido.');
+        }
+        $this->dao->delete($id);
+    }
 }

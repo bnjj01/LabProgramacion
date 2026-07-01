@@ -19,48 +19,48 @@
                     <div class="fs-5 text-dark fw-bold mb-0">
                         <?= htmlspecialchars($this->client['tipo'] ?? '') ?>
                     </div>
-                    <input type="hidden" id="tipo" value="<?= htmlspecialchars($this->client['tipo'] ?? '') ?>">
+                    <input type="hidden" id="tipo"value="<?= htmlspecialchars($this->client['tipo'] ?? '') ?>" required>
                 </div>
             </div>
 
             <div class="row mb-3" id="seccion-particular">
                 <div class="col-md-4">
                     <label for="apellido" class="form-label">Apellido</label>
-                    <input type="text" class="form-control input-particular" name="apellido" id="apellido" disabled required value="<?= htmlspecialchars($this->client['apellido'] ?? '') ?>">
+                    <input type="text" class="form-control input-particular" name="apellido" id="apellido" disabled required pattern="[A-Za-z\s-]{2,100}" value="<?= htmlspecialchars($this->client['apellido'] ?? '') ?>">
                 </div>
                 <div class="col-md-5">
                     <label for="nombres" class="form-label">Nombres</label>
-                    <input type="text" class="form-control input-particular" name="nombres" id="nombres" disabled required value="<?= htmlspecialchars($this->client['nombres'] ?? '') ?>">
+                    <input type="text" class="form-control input-particular" name="nombres" id="nombres" disabled required pattern="[A-Za-z\s-]{2,100}" value="<?= htmlspecialchars($this->client['nombres'] ?? '') ?>">
                 </div>
                 <div class="col-md-3">
                     <label for="dni" class="form-label">DNI</label>
-                    <input type="text" class="form-control input-particular" name="dni" id="dni" disabled required value="<?= htmlspecialchars($this->client['dni'] ?? '') ?>">
+                    <input type="text" class="form-control input-particular" name="dni" id="dni" disabled required value="<?= htmlspecialchars($this->client['dni'] ?? '') ?>" pattern="[0-9]{8,9}">
                 </div>
             </div>
 
             <div class="row mb-3 d-none" id="seccion-empresa">
                 <div class="col-md-8">
                     <label for="razon_social" class="form-label">Razón Social</label>
-                    <input type="text" class="form-control input-empresa" name="razon_social" id="razon_social" disabled value="<?= htmlspecialchars($this->client['razon_social'] ?? '') ?>">
+                    <input type="text" class="form-control input-empresa" name="razon_social" id="razon_social" disabled value="<?= htmlspecialchars($this->client['razon_social'] ?? '') ?>" pattern="[A-Za-z\s-]{2,100}">
                 </div>
                 <div class="col-md-4">
                     <label for="cuit" class="form-label">CUIT</label>
-                    <input type="text" class="form-control input-empresa" name="cuit" id="cuit" disabled value="<?= htmlspecialchars($this->client['cuit'] ?? '') ?>">
+                    <input type="text" class="form-control input-empresa" name="cuit" id="cuit" disabled required pattern="[0-9]{11}" value="<?= htmlspecialchars($this->client['cuit'] ?? '') ?>">
                 </div>
             </div>
 
             <div class="row mb-3 pt-3 border-top">
                 <div class="col-md-4">
                     <label for="telefono" class="form-label">Teléfono</label>
-                    <input type="text" class="form-control" name="telefono" id="telefono" disabled value="<?= htmlspecialchars($this->client['telefono'] ?? '') ?>">
+                    <input type="text" class="form-control" name="telefono" id="telefono" disabled value="<?= htmlspecialchars($this->client['telefono'] ?? '') ?>" pattern="[0-9]{10}">
                 </div>
                 <div class="col-md-4">
                     <label for="correo" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" name="correo" id="correo" disabled value="<?= htmlspecialchars($this->client['correo'] ?? '') ?>">
+                    <input type="email" class="form-control" name="correo" id="correo" disabled value="<?= htmlspecialchars($this->client['correo'] ?? '') ?>" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
                 </div>
                 <div class="col-md-4">
                     <label for="domicilio" class="form-label">Domicilio</label>
-                    <input type="text" class="form-control" name="domicilio" id="domicilio" disabled value="<?= htmlspecialchars($this->client['domicilio'] ?? '') ?>">
+                    <input type="text" class="form-control" name="domicilio" id="domicilio" disabled value="<?= htmlspecialchars($this->client['domicilio'] ?? '') ?>" pattern="[A-Za-z\s-]{2,100}">
                 </div>
             </div>
 
